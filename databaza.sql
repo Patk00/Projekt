@@ -1,12 +1,12 @@
-CREATE DATABASE filmova_aplikacia;
+CREATE DATABASE IF NOT EXISTS filmova_aplikacia;
 USE filmova_aplikacia;
 
-CREATE TABLE pouzivatelia (
+CREATE TABLE IF NOT EXISTS pouzivatelia (
     id INT AUTO_INCREMENT PRIMARY KEY,
     meno VARCHAR(50)
 );
 
-CREATE TABLE filmy (
+CREATE TABLE IF NOT EXISTS filmy (
     id INT AUTO_INCREMENT PRIMARY KEY,
     pouzivatel_id INT,
     nazov VARCHAR(255),
@@ -17,9 +17,11 @@ CREATE TABLE filmy (
     FOREIGN KEY (pouzivatel_id) REFERENCES pouzivatelia(id)
 );
 
-INSERT INTO pouzivatelia (meno) VALUES ('admin');
+
+INSERT INTO pouzivatelia (meno) VALUES ('admin'), ('Peter'), ('Lucia'), ('Filip');
+
 
 INSERT INTO filmy (pouzivatel_id, nazov, zaner, rok, hodnotenie)
 VALUES 
 (1, 'Inception', 'Sci-Fi', 2010, 9),
-(1, 'Interstellar', 'Sci-Fi', 2014, 10);
+(2, 'Interstellar', 'Sci-Fi', 2014, 10);
