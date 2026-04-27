@@ -1,40 +1,13 @@
-<<<<<<< HEAD
-<?php
-include 'db.php';
-
-//vymazeme film
-if (isset($_GET['vymazat'])) {
-    $id = $_GET['vymazat'];
-    $sql = "DELETE FROM filmy WHERE id = $id";
-    mysqli_query($pripojenie, $sql);
-    
-    // Obnovime stranku
-=======
 <?php 
 include 'db.php'; 
 
 if(isset($_GET['zmazat'])) {
     $id = $_GET['zmazat'];
     mysqli_query($pripojenie, "DELETE FROM filmy WHERE id = $id");
->>>>>>> 8598022c8399bfcd1a9737c7529d7f850c2c3065
     header("Location: index.php");
 }
 ?>
 <!DOCTYPE html>
-<<<<<<< HEAD
-<html>
-<head>
-    <title>Moje filmy</title>
-</head>
-<body>
-
-    <h1>Evidencia filmov</h1>
-    
-    <a href="pridat.php">Pridať nový film</a>
-    <br><br>
-
-    <table border="1" cellpadding="5">
-=======
 <html lang="sk">
 <head>
     <meta charset="UTF-8">
@@ -107,35 +80,10 @@ if(isset($_GET['zmazat'])) {
     <a href="pridat.php" class="btn btn-add">Pridať nový záznam</a>
 
     <table>
->>>>>>> 8598022c8399bfcd1a9737c7529d7f850c2c3065
         <tr>
             <th>Názov</th>
             <th>Žáner</th>
             <th>Rok</th>
-<<<<<<< HEAD
-            <th>Hodnotenie</th>
-            <th>Akcie</th>
-        </tr>
-
-        <?php
-        $sql = "SELECT * FROM filmy";
-        $vysledok = mysqli_query($pripojenie, $sql);
-
-        while ($riadok = mysqli_fetch_assoc($vysledok)) {
-            echo "<tr>";
-            echo "<td>" . $riadok['nazov'] . "</td>";
-            echo "<td>" . $riadok['zaner'] . "</td>";
-            echo "<td>" . $riadok['rok'] . "</td>";
-            echo "<td>" . $riadok['hodnotenie'] . " / 10</td>";
-            echo "<td>
-                    <a href='upravit.php?id=" . $riadok['id'] . "'>Upravit</a> | 
-                    <a href='index.php?vymazat=" . $riadok['id'] . "'>Zmazat</a>
-                  </td>";
-            echo "</tr>";
-        }
-        ?>
-    </table>
-=======
             <th>Pridal</th>
             <th>Akcie</th>
         </tr>
@@ -161,7 +109,6 @@ if(isset($_GET['zmazat'])) {
         ?>
     </table>
 </div>
->>>>>>> 8598022c8399bfcd1a9737c7529d7f850c2c3065
 
 </body>
 </html>
