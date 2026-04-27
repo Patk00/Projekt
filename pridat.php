@@ -1,18 +1,20 @@
 <?php
 include 'db.php';
 
-// Ak sa stlacilo tlacidlo Ulozit
 if (isset($_POST['ulozit'])) {
     $nazov = $_POST['nazov'];
-    $zaner = $_POST['zaner'];
-    $rok = $_POST['rok'];
-    $hodnotenie = $_POST['hodnotenie'];
+    if (empty($nazov)) {
+        echo "Musíš zadať názov filmu!";
+    } else {
+            $zaner = $_POST['zaner'];
+            $rok = $_POST['rok'];
+            $hodnotenie = $_POST['hodnotenie'];
 
-    // Vlozime do databazy (pouzivatel je 1)
-    $sql = "INSERT INTO filmy (pouzivatel_id, nazov, zaner, rok, hodnotenie) VALUES (1, '$nazov', '$zaner', '$rok', '$hodnotenie')";
-    mysqli_query($pripojenie, $sql);
+            $sql = "INSERT INTO filmy (pouzivatel_id, nazov, zaner, rok, hodnotenie) VALUES (1, '$nazov', '$zaner', '$rok', '$hodnotenie')";
+            mysqli_query($pripojenie, $sql);
     
-    header("Location: index.php");
+            header("Location: index.php");
+    }
 }
 ?>
 <!DOCTYPE html>

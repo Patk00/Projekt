@@ -1,6 +1,6 @@
 
 <?php
-// Pripojenie (server, meno, heslo, databaza)
+// Pripojenie 
 $pripojenie = mysqli_connect("localhost", "root", "root", "filmova_aplikacia");
 
 // Ak sa nepripoji, vypise chybu a zastavi sa

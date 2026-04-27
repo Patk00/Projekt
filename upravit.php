@@ -1,24 +1,20 @@
 <?php
 include 'db.php';
 
-// Zistime si ID filmu z adresy
 $id = $_GET['id'];
 
-// Ak sa stlacilo tlacidlo Ulozit zmeny
 if (isset($_POST['upravit'])) {
     $nazov = $_POST['nazov'];
     $zaner = $_POST['zaner'];
     $rok = $_POST['rok'];
     $hodnotenie = $_POST['hodnotenie'];
 
-    // Prepisme data v databaze
     $sql = "UPDATE filmy SET nazov='$nazov', zaner='$zaner', rok='$rok', hodnotenie='$hodnotenie' WHERE id=$id";
     mysqli_query($pripojenie, $sql);
     
     header("Location: index.php");
 }
 
-// Nacitame aktualne udaje o filme, aby sme ich dali do formulara
 $sql = "SELECT * FROM filmy WHERE id=$id";
 $vysledok = mysqli_query($pripojenie, $sql);
 $film = mysqli_fetch_assoc($vysledok);

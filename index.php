@@ -1,7 +1,7 @@
 <?php
 include 'db.php';
 
-// Ak sme klikli na zmazat, vymazeme film
+//vymazeme film
 if (isset($_GET['vymazat'])) {
     $id = $_GET['vymazat'];
     $sql = "DELETE FROM filmy WHERE id = $id";
@@ -33,11 +33,9 @@ if (isset($_GET['vymazat'])) {
         </tr>
 
         <?php
-        // Vyberieme vsetky filmy
         $sql = "SELECT * FROM filmy";
         $vysledok = mysqli_query($pripojenie, $sql);
 
-        // Vypisujeme riadok po riadku
         while ($riadok = mysqli_fetch_assoc($vysledok)) {
             echo "<tr>";
             echo "<td>" . $riadok['nazov'] . "</td>";
