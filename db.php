@@ -1,9 +1,8 @@
 
 <?php
-// Pripojenie 
+
 $pripojenie = mysqli_connect("localhost", "root", "root", "filmova_aplikacia");
 
-// Ak sa nepripoji, vypise chybu a zastavi sa
 if (!$pripojenie) {
     die("Chyba pripojenia k databaze.");
 }
